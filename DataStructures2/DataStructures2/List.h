@@ -20,17 +20,41 @@ public:
 	{
 		node* tmp = new node;
 		tmp->value = elem;
-		tmp->next = nullptr;
+		tmp->prev = NULL;
 
-		if (start == nullptr)
+		if (start == NULL)
 			start = tmp;
 		else
 		{
-			tmp->next = start;
+			node* iterator = start;
+			while (iterator->prev != NULL)
+				iterator = iterator->prev;
+			
+			iterator->prev = tmp;
+
 		}
 	}
-	void pushBack(const TYPE& elem);
-	void popFront();
+	void pushBack(const TYPE& elem)
+	{
+		node* tmp = new node;
+		tmp->value = elem;
+		tmp->next = NULL;
+
+		if (start == NULL)
+			start = tmp;
+		else
+		{
+			node* iterator = start;
+			while (iterator->next != NULL)
+				iterator = iterator->next;
+
+			iterator->next = tmp;
+		}
+	}
+	void popFront()
+	{
+
+	}
 	void popBack();
 	void insert(uint pos, const TYPE& elem);
 	void remove(uint pos);
