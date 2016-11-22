@@ -11,7 +11,7 @@ public:
 		idEndElem = -1;
 		queueElems = new TYPE[maxElems];
 	}
-	~Stack()
+	~Queue()
 	{
 		delete queueElems;
 	}
